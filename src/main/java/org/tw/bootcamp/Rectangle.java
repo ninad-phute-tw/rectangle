@@ -6,6 +6,9 @@ public class Rectangle {
     private final int breadth;
 
     public Rectangle(int length, int breadth) {
+        if (length < 0) {
+            throw new RuntimeException();
+        }
         this.length = length;
         this.breadth = breadth;
     }

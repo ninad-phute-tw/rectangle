@@ -27,4 +27,12 @@ public class RectangleTest {
 
         assertEquals(30, perimeter);
     }
+
+    @Test
+    void shouldNotAllowToCreateRectangleWithNegativeLength(){
+        int length = -10;
+        int breadth = 5;
+
+        assertThrows(RuntimeException.class, ()-> new Rectangle(length, breadth));
+    }
 }
