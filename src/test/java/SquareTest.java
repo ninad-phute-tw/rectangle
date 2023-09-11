@@ -1,7 +1,9 @@
 import org.junit.jupiter.api.Test;
+import org.tw.bootcamp.Rectangle;
 import org.tw.bootcamp.Square;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class SquareTest {
 
@@ -23,5 +25,19 @@ public class SquareTest {
         double area = square.perimeter();
 
         assertEquals(40, area);
+    }
+
+    @Test
+    void shouldNotAllowToCreateSquareWithNegativeSide() {
+        final int side = -1;
+
+        assertThrows(IllegalArgumentException.class, () -> new Square(side));
+    }
+
+    @Test
+    void shouldNotAllowToCreateSquareWithZeroSide() {
+        final int side = 0;
+
+        assertThrows(IllegalArgumentException.class, () -> new Square(side));
     }
 }
